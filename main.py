@@ -18,3 +18,9 @@ while(True):
     if(myCharacter.isDead()):
         print(f'{myCharacter.name} est mort.')
         break
+
+# TODO :
+# a class for fight between livintEntity.
+# a class for other type of livingEntity (child).
+# set other stats (res, dmg, resPurcent, dmgPurcent, crit, parade, dmgCrit, resCrit).
+# set SQL DB, for livingEntity stats, pseudo adventurer, ... etc.
