@@ -1,7 +1,7 @@
 from enum import Enum
 
 class Elements(Enum):
-    FIRE = 1
-    EARTH = 2
-    WATER = 3
-    AIR = 4
+    FIRE = 0
+    EARTH = 1
+    WATER = 2
+    AIR = 3
