@@ -23,6 +23,8 @@ while(True):
         break
     time.sleep(2)
 
+
+
 # TODO :
 # a class for fight between livintEntity.
 # a class for other type of livingEntity (child).
