@@ -33,7 +33,13 @@ class LivingEntity():
         spell.value = int(spell.value)
         oponent.takeHit(spell)
 
-        return f'{self.name} attaque {oponent.name}, ({spell.value} damages), {oponent.HP.currentValue} HP restant.'
+        return (
+            f'{self.name} attaque {oponent.name},'+
+            f'{('[CC!]' if spell.isCrit else '')}'+
+            f' ({spell.value} damages)'+
+            f'{('[Par!]' if spell.isParade else '')}'+
+            f', {oponent.HP.currentValue} HP restant.'
+        )
 
     def pickAtk(self) -> 'Spell':
         damage = 0
