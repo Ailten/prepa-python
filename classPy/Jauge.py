@@ -33,3 +33,6 @@ class Jauge():
         return (self.currentValue <= 0)
     def isFull(self) -> bool:
         return self.currentValue >= self.maxValue
+
+    def __int__(self):
+        return self.currentValue
