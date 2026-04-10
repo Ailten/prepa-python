@@ -30,11 +30,12 @@ class LivingEntity():
         spell = self.pickAtk().clone()
         self.calcDamage(spell)
         oponent.calcRes(spell)
+        spell.value = int(spell.value)
         oponent.takeHit(spell)
 
         return f'{self.name} attaque {oponent.name}, ({spell.value} damages), {oponent.HP.currentValue} HP restant.'
 
-    def pickAtk(self):
+    def pickAtk(self) -> 'Spell':
         damage = 0
         for i in range(3):
             damage += self.rngDice(6)
@@ -45,7 +46,7 @@ class LivingEntity():
         spell.value *= 1.0 + self.dmgPurcent[spell.element]
         spell.value += self.dmg[spell.element]
         if(self.rng(100) <= self.crit.currentValue):
-            spell.value += self.dmgCrit[spell.element]
+            spell.value += self.dmgCrit
             spell.value *= 1.20
             spell.isCrit = True
 

@@ -6,7 +6,7 @@ class Jauge():
         self.maxValue = maxValue
         self.currentValue = maxValue
     @classmethod
-    def initWithValue(self, currentValue, maxValue):
+    def initWithValue(self, currentValue, maxValue) -> 'Jauge':
         instance = Jauge(maxValue)
         instance.currentValue = currentValue
         return instance

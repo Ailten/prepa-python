@@ -6,7 +6,7 @@ class Spell():
         self.isCrit = False
         self.isParade = False
 
-    def clone(self) -> "Spell":
+    def clone(self) -> 'Spell':
         instance = Spell(self.value, self.element)
         instance.isCrit = self.isCrit
         instance.isParade = self.isParade
