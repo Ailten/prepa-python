@@ -26,5 +26,5 @@ insert into `class`
 
 delete from `adventurer`;
 insert into `adventurer`
-(id, `name`, xp, lvl, class) values
+(id, `name`, xp, lvl, idClass) values
 (1, "Axolootl", 0, 1, 13);
