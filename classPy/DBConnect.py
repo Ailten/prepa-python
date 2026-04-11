@@ -1,10 +1,10 @@
-import mysql.connetor
+import mysql.connector
 import json
 
 class DBConnect():
 
     @classmethod
-    def getAccessDB():
+    def getAccessDB(self):
 
         fileJson = None
 
@@ -33,11 +33,12 @@ class DBConnect():
             connection = mysql.connector.connect(  # establish a connection to DB.
                 host='localhost',
                 database='PrepaPySql',
-                user=access.login,
-                password=access.password
+                user=access['login'],
+                password=access['password']
             )
 
-            cursor = connection.execute(query)  # execute a query SQL.
+            cursor = connection.cursor()
+            cursor.execute(query)  # execute a query SQL.
 
             return cursor.fetchall()  # return the result of query.
 

@@ -1,8 +1,10 @@
 from classPy.LivingEntity import LivingEntity
 from classPy.Fight import Fight
 
+#from classPy.DBConnect import DBConnect
+#print(DBConnect.callToDB('SELECT * FROM class'))
+
 myCharacter = LivingEntity('Iop')
-myCharacter.crit.currentValue = 20
 myOponent = LivingEntity('Abra')
 
 Fight.duel(myCharacter, myOponent, turnWait=0.6)
