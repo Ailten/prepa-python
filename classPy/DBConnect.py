@@ -23,23 +23,23 @@ class DBConnect():
     @classmethod
     def callToDB(self, query):
 
-        access = DBConnect.getAccessDB()
-
         connection = None
         cursor = None
 
         try:
 
-            connection = mysql.connector.connect(
+            access = DBConnect.getAccessDB()  # get login, password for connect to DB.
+
+            connection = mysql.connector.connect(  # establish a connection to DB.
                 host='localhost',
                 database='PrepaPySql',
                 user=access.login,
                 password=access.password
             )
 
-            cursor = connection.execute(query)
+            cursor = connection.execute(query)  # execute a query SQL.
 
-            return cursor.fetchall()
+            return cursor.fetchall()  # return the result of query.
 
         except Exception as e:
             raise e
