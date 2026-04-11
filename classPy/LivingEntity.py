@@ -7,6 +7,7 @@ class LivingEntity():
 
     def __init__(self, name: str):
         self.name = name
+        self.lvl = 1
 
         self.HP = Jauge(100)  # Heal Point.
         self.MP = Jauge(100)  # Mana Point.
