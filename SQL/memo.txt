@@ -1,0 +1,3 @@
+
+// cmd for create tables.
+mysql -u root -p PrepaPySql < SQL/DB_create.sql
