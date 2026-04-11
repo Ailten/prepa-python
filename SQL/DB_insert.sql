@@ -1,6 +1,4 @@
 
--- database name : PrepaPySql
-
 delete from `class`;
 insert into `class`
 (id, `name`) values

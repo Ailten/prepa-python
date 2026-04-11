@@ -1,6 +1,4 @@
 
--- database name : PrepaPySql
-
 create table if not exists `class` (
     `id` int(11) not null auto_increment primary key,
     `name` varchar(16) not null
