@@ -8,13 +8,15 @@ class Spell():
         self.cooldown = 0
         self.turnUntilReDo = 0
         self.name = None
+        self.rangValue = 0
 
     @classmethod
-    def initDetails(self, value: int, element: int, cooldown=0, name='attaque', lvl=1):
+    def initDetails(self, value: int, element: int, cooldown=0, name='attaque', lvl=1, rangValue=0):
         instance = Spell(value, element)
         instance.cooldown = cooldown
         instance.turnUntilReDo = 0
         instance.name = name
+        instance.rangValue = rangValue
         return instance
 
     def clone(self) -> 'Spell':
@@ -26,8 +28,15 @@ class Spell():
         instance.name = self.name
         return instance
         
-    def isCanBePlay(self) -> bool:
+    def isCanBePlay(self, lvl: int) -> bool:
+        return (
+            self.isHasCooldownFor() and
+            self.isHasLvlFor(lvl)
+        )
+    def isHasCooldownFor(self) -> bool:
         return self.turnUntilReDo <= 0
+    def isHasLvlFor(self, lvl: int) -> bool:
+        return lvl >= self.lvl
 
     def resetCooldown(self):
         self.turnUntilReDo = self.cooldown

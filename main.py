@@ -12,7 +12,6 @@ Fight.duel(myCharacter, myOponent, turnWait=0.6)
 
 
 # TODO :
+# make spellsDetails take a range random for damage (and heal).
 # a class for other type of livingEntity (child).
-# - with spell dedicate and override of logic turn.
-# --- add spell param (turn cooldown, last time launched, isCooldownFree()).
 # set SQL DB, for livingEntity stats, pseudo adventurer, ... etc.

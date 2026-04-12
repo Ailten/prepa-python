@@ -66,12 +66,17 @@ class LivingEntity():
             f' ({spell.value} soins)'
         )
 
+    def selfBoostDamage(spell: 'Spell') -> str:
+        self.dmg[spell.element] += spell.value
+
     def pickAtk(self) -> 'Spell':
         damage = RandomManager.rngBetween(6, 12)
         element = RandomManager.rng(4)
         return Spell(damage, element)
 
     def calcDamage(self, spell: Spell):
+        if(spell.rangeValue != 0):
+            spell.value += RandomManager.rngBetween(0, spell.rangeValue)
         spell.value *= 1.0 + self.dmgPurcent[spell.element]
         spell.value += self.dmg[spell.element]
         if(RandomManager.rngDice(100) <= self.crit.currentValue):
