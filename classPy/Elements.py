@@ -1,6 +1,6 @@
-from enum import Enum
+from enum import IntEnum
 
-class Elements(Enum):
+class Elements(IntEnum):
     FIRE = 0
     EARTH = 1
     WATER = 2

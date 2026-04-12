@@ -8,7 +8,7 @@ class LivingEntity():
         self.name = name
         self.lvl = 1
 
-        self.HP = Jauge(100)  # Heal Point.
+        self.HP = Jauge(60)  # Heal Point.
         #self.MP = Jauge(100)  # Mana Point.
         #self.SP = Jauge(100)  # Stamina Point.
 
@@ -70,7 +70,7 @@ class LivingEntity():
         self.dmg[spell.element] += spell.value
 
     def pickAtk(self) -> 'Spell':
-        damage = RandomManager.rngBetween(6, 12)
+        damage = RandomManager.rngBetween(3, 5)
         element = RandomManager.rng(4)
         return Spell(damage, element)
 

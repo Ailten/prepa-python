@@ -8,14 +8,16 @@ class Spell():
         self.cooldown = 0
         self.turnUntilReDo = 0
         self.name = None
+        self.lvl = 1
         self.rangValue = 0
 
     @classmethod
-    def initDetails(self, value: int, element: int, cooldown=0, name='attaque', lvl=1, rangValue=0):
+    def initDetails(self, value: int, element: int, cooldown=0, name='attaque', lvl=1, rangValue=0) -> 'Spell':
         instance = Spell(value, element)
         instance.cooldown = cooldown
         instance.turnUntilReDo = 0
         instance.name = name
+        instance.lvl = lvl
         instance.rangValue = rangValue
         return instance
 
@@ -26,6 +28,8 @@ class Spell():
         instance.cooldown = self.cooldown
         instance.turnUntilReDo = self.turnUntilReDo
         instance.name = self.name
+        instance.lvl = self.lvl
+        instance.rangValue = self.rangValue
         return instance
         
     def isCanBePlay(self, lvl: int) -> bool:

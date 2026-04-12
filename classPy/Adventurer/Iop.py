@@ -1,37 +1,37 @@
 from classPy.LivingEntity import LivingEntity
 from classPy.Spell import Spell
-from classPy.Element import Element
+from classPy.Elements import Elements
 
 class Iop(LivingEntity):
     def __init__(self, name='Iop', lvl=1):
         super().__init__(name)
         self.lvl = lvl
         self.spells = {
-            Spell.initDetails(
+            'pression': Spell.initDetails(
                 value=4,
                 rangValue=2,
-                element=Element.EARTH,
+                element=int(Elements.EARTH),
                 name='pression'
             ),
-            Spell.initDetails(
+            'puissance': Spell.initDetails(
                 value=2,
-                element=Element.EARTH,
+                element=int(Elements.EARTH),
                 name='puissance',
                 cooldown=4,
                 lvl=2
-            )
-            Spell.initDetails(
+            ),
+            'vitalité': Spell.initDetails(
                 value=12,
                 rangValue=3,
-                element=Element.FIRE,
+                element=int(Elements.FIRE),
                 name='vitalité',
                 cooldown=5,
                 lvl=3
             ),
-            Spell.initDetails(
+            'colère de iop': Spell.initDetails(
                 value=20,
                 rangValue=5,
-                element=Element.EARTH,
+                element=int(Elements.EARTH),
                 name='colère de iop',
                 cooldown=8,
                 lvl=5
