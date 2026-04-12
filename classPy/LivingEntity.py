@@ -75,8 +75,8 @@ class LivingEntity():
         return Spell(damage, element)
 
     def calcDamage(self, spell: Spell):
-        if(spell.rangeValue != 0):
-            spell.value += RandomManager.rngBetween(0, spell.rangeValue)
+        if(spell.rangValue != 0):
+            spell.value += RandomManager.rngBetween(0, spell.rangValue)
         spell.value *= 1.0 + self.dmgPurcent[spell.element]
         spell.value += self.dmg[spell.element]
         if(RandomManager.rngDice(100) <= self.crit.currentValue):
