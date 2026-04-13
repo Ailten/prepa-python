@@ -43,7 +43,9 @@ class Spell():
         return lvl >= self.lvl
 
     def resetCooldown(self):
-        self.turnUntilReDo = self.cooldown
+        if self.cooldown <= 0:
+            return
+        self.turnUntilReDo = self.cooldown + 1
     def updateTurnCooldown(self):
-        if(self.turnUntilReDo > 0):
+        if self.turnUntilReDo > 0:
             self.turnUntilReDo -= 1

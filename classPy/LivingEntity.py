@@ -1,6 +1,7 @@
 from classPy.Jauge import Jauge
 from classPy.Spell import Spell
 from classPy.RandomManager import RandomManager
+from classPy.Elements import Elements
 import math
 
 class LivingEntity():
@@ -51,7 +52,7 @@ class LivingEntity():
             f', {oponent.HP.currentValue} HP restant.'
         )
 
-    def selfHeal(spell: 'Spell') -> str:
+    def selfHeal(self, spell: 'Spell') -> str:
 
         self.calcDamage(spell)
         spell.value = int(spell.value)
@@ -66,11 +67,20 @@ class LivingEntity():
             f' ({spell.value} soins)'
         )
 
-    def selfBoostDamage(spell: 'Spell') -> str:
+    def selfBoostDamage(self, spell: 'Spell') -> str:
+        spell.value = int(spell.value)
         self.dmg[spell.element] += spell.value
 
+        spellNameStr = f'{self.name} lance {spell.name} !' if spell.name != None else f'{self.name} ce boost,'
+        elementStr = Elements(spell.element).getName()
+
+        return (
+            f'{spellNameStr}'+
+            f' ({spell.value} domages {elementStr})'
+        )
+
     def pickAtk(self) -> 'Spell':
-        damage = RandomManager.rngBetween(3, 5)
+        damage = RandomManager.rngBetween(4, 6)
         element = RandomManager.rng(4)
         return Spell(damage, element)
 
