@@ -1,6 +1,6 @@
 from classPy.LivingEntity import LivingEntity
 from classPy.Fight import Fight
-from classPy.Adventurer.Iop import Iop
+from classPy.Adventurer.Eniripsa import Eniripsa
 
 #from classPy.DBConnect import DBConnect
 #print(DBConnect.callToDB('SELECT * FROM class'))
@@ -8,7 +8,7 @@ from classPy.Adventurer.Iop import Iop
 #myCharacter = LivingEntity('Iop')
 #myOponent = LivingEntity('Abra')
 
-myCharacter = Iop('Vald', lvl=1)
+myCharacter = Eniripsa('Assistant', lvl=1)
 myOponent = LivingEntity('Abra')
 
 Fight.duel(myCharacter, myOponent, turnWait=0.6)

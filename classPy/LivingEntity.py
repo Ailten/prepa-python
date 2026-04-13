@@ -39,6 +39,8 @@ class LivingEntity():
         oponent.calcRes(spell)
         spell.value = int(spell.value)
         oponent.takeHit(spell)
+        if spell.isSteelHP:  # todo, pritn in lock the steel HP.
+            self.takeHeal(int(spell.value / 2))
 
         critStr = '[CC!]' if spell.isCrit else ''
         parStr = '[Par!]' if spell.isParade else ''

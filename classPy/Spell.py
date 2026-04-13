@@ -10,15 +10,17 @@ class Spell():
         self.name = None
         self.lvl = 1
         self.rangValue = 0
+        self.isSteelHP = False
 
     @classmethod
-    def initDetails(self, value: int, element: int, cooldown=0, name='attaque', lvl=1, rangValue=0) -> 'Spell':
+    def initDetails(self, value: int, element: int, cooldown=0, name='attaque', lvl=1, rangValue=0, isSteelHP=False) -> 'Spell':
         instance = Spell(value, element)
         instance.cooldown = cooldown
         instance.turnUntilReDo = 0
         instance.name = name
         instance.lvl = lvl
         instance.rangValue = rangValue
+        instance.isSteelHP = isSteelHP
         return instance
 
     def clone(self) -> 'Spell':
@@ -30,6 +32,7 @@ class Spell():
         instance.name = self.name
         instance.lvl = self.lvl
         instance.rangValue = self.rangValue
+        instance.isSteelHP = False
         return instance
         
     def isCanBePlay(self, lvl: int) -> bool:
