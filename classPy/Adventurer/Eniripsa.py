@@ -1,4 +1,5 @@
 from classPy.LivingEntity import LivingEntity
+from classPy.Spell import Spell
 from classPy.Elements import Elements
 
 class Eniripsa(LivingEntity):
@@ -35,13 +36,13 @@ class Eniripsa(LivingEntity):
                 lvl=3
             ),
             'mot vampirique': Spell.initDetails(
-                value=8,
+                value=6,
                 rangValue=2,
+                isSteelHP=True,
                 element=int(Elements.WATER),
                 name='mot vampirique',
                 cooldown=1,
-                lvl=4,
-                isSteelHP=True
+                lvl=4
             ),
             'mot reconstituant': Spell.initDetails(
                 value=40,
@@ -49,9 +50,7 @@ class Eniripsa(LivingEntity):
                 name='mot reconstituant',
                 cooldown=8,
                 lvl=5
-            ),
-
-
+            )
         }
 
     def playTurn(self, oponent) -> str:
@@ -62,7 +61,7 @@ class Eniripsa(LivingEntity):
             print(f'{self.name} perd mot préventif.')
 
         # pick spell.
-        if(self.spells['mot vampirique'].isCanBePlay(self.lvl) and self.dmgPurcent[int(Elements.WATER)] > self.dmgPurcent[int(Elements.FIRE)])
+        if(self.spells['mot vampirique'].isCanBePlay(self.lvl) and self.dmgPurcent[int(Elements.WATER)] >= self.dmgPurcent[int(Elements.FIRE)]):
             self.spells['mot vampirique'].resetCooldown()
             return self.atkOponent(oponent, self.spells['mot vampirique'].clone())
         if(self.spells['mot reconstituant'].isCanBePlay(self.lvl) and self.HP.getPurcent() < 0.15):
@@ -71,7 +70,7 @@ class Eniripsa(LivingEntity):
         if(self.spells['mot curatif'].isCanBePlay(self.lvl) and self.HP.getPurcent() < 0.8):
             self.spells['mot curatif'].resetCooldown()
             return self.selfHeal(self.spells['mot curatif'].clone())
-        if(self.spells['mot interdit'].isCanBePlay(self.lvl)):
+        if(self.spells['mot interdit'].isCanBePlay(self.lvl) and self.dmgPurcent[int(Elements.FIRE)] >= self.dmgPurcent[int(Elements.AIR)]):
             self.spells['mot interdit'].resetCooldown()
             return self.atkOponent(oponent, self.spells['mot interdit'].clone())
         return self.atkOponent(oponent, self.spells['mot blessant'].clone())

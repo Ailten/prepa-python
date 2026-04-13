@@ -8,7 +8,7 @@ from classPy.Adventurer.Eniripsa import Eniripsa
 #myCharacter = LivingEntity('Iop')
 #myOponent = LivingEntity('Abra')
 
-myCharacter = Eniripsa('Assistant', lvl=1)
+myCharacter = Eniripsa('Assistant', lvl=4)
 myOponent = LivingEntity('Abra')
 
 Fight.duel(myCharacter, myOponent, turnWait=0.6)

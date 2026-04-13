@@ -29,7 +29,7 @@ class Iop(LivingEntity):
                 lvl=3
             ),
             'épée de iop': Spell.initDetails(
-                value=5,
+                value=6,
                 rangValue=3,
                 element=int(Elements.EARTH),
                 name='épée de iop',
