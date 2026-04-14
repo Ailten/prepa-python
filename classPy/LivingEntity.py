@@ -109,10 +109,23 @@ class LivingEntity():
             spell.value -= self.resCrit
 
     def takeHit(self, spell: Spell):
+        spell.value = math.max(spell.value, 0)
         self.HP.decreate(spell.value)
+        if(self.HP.currentValue <= 0):
+            self.die()
+        
+        if(self.HP.isUnderRange()):
+            self.HP.clamp()
 
     def takeHeal(self, spell: Spell):
+        spell.value = math.max(spell.value, 0)
         self.HP.increase(spell.value)
+
+        if(self.HP.isOverRange()):
+            self.HP.clamp()
+
+    def die(self, spell: Spell):
+        pass
 
     
     def isDead(self) -> bool:
