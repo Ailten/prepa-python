@@ -81,6 +81,18 @@ class LivingEntity():
             f' ({spell.value} domages {elementStr})'
         )
 
+    def selfBoostRes(self, spell: 'Spell') -> str:
+        spell.value = int(spell.value)
+        self.res[spell.element] += spell.value
+
+        spellNameStr = f'{self.name} lance {spell.name} !' if spell.name != None else f'{self.name} ce boost,'
+        elementStr = Elements(spell.element).getName()
+
+        return (
+            f'{spellNameStr}'+
+            f' ({spell.value} res. {elementStr})'
+        )
+
     def pickAtk(self) -> 'Spell':
         damage = RandomManager.rngBetween(4, 6)
         element = RandomManager.rng(4)

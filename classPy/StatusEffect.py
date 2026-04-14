@@ -3,11 +3,13 @@ from enum import IntEnum
 # wip.
 
 class StatusEffect():
-    def __init__(self, name: str, turns: int, procWhen: 'ProcWhen', action):
+    def __init__(self, name: str, turns: int, procWhen: 'ProcWhen', action, target, launcher):
         self.name = name
         self.turns = turns
         self.procWhen = procWhen
-        self.action = action
+        self.action = action  # lambda call when procWhen.
+        self.target = target
+        self.lancher = launcher
 
 
 class ProcWhen(IntEnum):
