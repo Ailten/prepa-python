@@ -38,7 +38,7 @@ class Feca(LivingEntity):
                 value=10,
                 rangValue=2,
                 isSteelHP=True,
-                element=int(Elements.AIR),
+                element=int(Elements.FIRE),
                 name='furie du survivant',
                 cooldown=3,
                 lvl=4
@@ -74,7 +74,7 @@ class Feca(LivingEntity):
         elif(self.spells['première défence'].isCanBePlay(self.lvl)):
             self.spells['première défence'].resetCooldown()
             return self.selfBoostRes(self.spells['première défence'].clone())
-        elif(self.spells['furie du survivant'].isCanBePlay(self.lvl) and self.HP.getPurcent <= 0.1 and self.dmgPurcent[int(Elements.AIR)] >= self.dmgPurcent[int(Elements.WATER)]):
+        elif(self.spells['furie du survivant'].isCanBePlay(self.lvl) and self.HP.getPurcent <= 0.1 and self.dmgPurcent[int(Elements.FIRE)] >= self.dmgPurcent[int(Elements.WATER)]):
             self.spells['furie du survivant'].resetCooldown()
             return self.atkOponent(oponent, self.spells['furie du survivant'].clone())
         elif(self.spells['retourné'].isCanBePlay(self.lvl) and self.dmgPurcent[int(Elements.WATER)] >= self.dmgPurcent[int(Elements.EARTH)]):
