@@ -7,16 +7,16 @@ from classPy.Fight import Fight
 #myCharacter = LivingEntity('Iop')
 #myOponent = LivingEntity('Abra')
 
-#from classPy.Adventurer.Iop import Iop
-#myCharacter = Iop('Assistant', lvl=4)
+#from classPy.Adventurer.Mercenaire import Mercenaire
+#myCharacter = Mercenaire('Valli Nuavé', lvl=4)
 #myOponent = LivingEntity('Abra')
 
-#from classPy.Adventurer.Eniripsa import Eniripsa
-#myCharacter = Eniripsa('Assistant', lvl=4)
+#from classPy.Adventurer.Healer import Healer
+#myCharacter = Eniripsa('Assi Ten', lvl=4)
 #myOponent = LivingEntity('Abra')
 
-from classPy.Adventurer.Feca import Feca
-myCharacter = Feca('Assistant', lvl=1)
+from classPy.Adventurer.Tank import Tank
+myCharacter = Feca('Daramu Nico', lvl=1)
 myOponent = LivingEntity('Abra')
 
 Fight.duel(myCharacter, myOponent, turnWait=0.6)

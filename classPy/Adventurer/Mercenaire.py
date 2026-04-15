@@ -2,8 +2,8 @@ from classPy.LivingEntity import LivingEntity
 from classPy.Spell import Spell
 from classPy.Elements import Elements
 
-class Iop(LivingEntity):
-    def __init__(self, name='Iop', lvl=1):
+class Mercenaire(LivingEntity):
+    def __init__(self, name='Mercenaire', lvl=1):
         super().__init__(name)
         self.lvl = lvl
         self.spells = {
