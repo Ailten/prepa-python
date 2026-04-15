@@ -69,29 +69,52 @@ class LivingEntity():
             f' ({spell.value} soins)'
         )
 
-    def selfBoostDamage(self, spell: 'Spell') -> str:
+    def selfBoostDamage(self, spell: 'Spell', isNoElementStr=True) -> str:
         spell.value = int(spell.value)
         self.dmg[spell.element] += spell.value
 
         spellNameStr = f'{self.name} lance {spell.name} !' if spell.name != None else f'{self.name} ce boost,'
-        elementStr = Elements(spell.element).getName()
+        elementStr = (' ' + Elements(spell.element).getName()) if isNoElementStr else ''
 
         return (
             f'{spellNameStr}'+
-            f' ({spell.value} domages {elementStr})'
+            f' ({spell.value} domages'+
+            f'{elementStr})'
         )
 
-    def selfBoostRes(self, spell: 'Spell') -> str:
+    def selfBoostDamageAllElements(self, spell: 'Spell') -> str:
+        spell.element = int(Elements.FIRE)
+        self.selfBoostDamage(spell)
+        spell.element = int(Elements.EARTH)
+        self.selfBoostDamage(spell)
+        spell.element = int(Elements.WATER)
+        self.selfBoostDamage(spell)
+        spell.element = int(Elements.AIR)
+        return self.selfBoostDamage(spell, isElementStr=False)
+
+
+    def selfBoostRes(self, spell: 'Spell', isElementStr=True) -> str:
         spell.value = int(spell.value)
         self.res[spell.element] += spell.value
 
         spellNameStr = f'{self.name} lance {spell.name} !' if spell.name != None else f'{self.name} ce boost,'
-        elementStr = Elements(spell.element).getName()
+        elementStr = (' ' + Elements(spell.element).getName()) if isElementStr else ''
 
         return (
             f'{spellNameStr}'+
-            f' ({spell.value} res. {elementStr})'
+            f' ({spell.value} res.'+
+            f'{elementStr})'
         )
+
+    def selfBoostResAllElements(self, spell: 'Spell') -> str:
+        spell.element = int(Elements.FIRE)
+        self.selfBoostRes(spell)
+        spell.element = int(Elements.EARTH)
+        self.selfBoostRes(spell)
+        spell.element = int(Elements.WATER)
+        self.selfBoostRes(spell)
+        spell.element = int(Elements.AIR)
+        return self.selfBoostRes(spell, isElementStr=False)
 
     def pickAtk(self) -> 'Spell':
         damage = RandomManager.rngBetween(4, 6)

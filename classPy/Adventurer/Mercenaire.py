@@ -56,7 +56,10 @@ class Mercenaire(LivingEntity):
 
         # debuff.
         if(self.spells['confiance'].turnUntilReDo == 1):
-            self.dmg[self.spells['confiance'].element] -= self.spells['confiance'].value
+            self.dmg[int(Elements.FIRE)] -= self.spells['confiance'].value
+            self.dmg[int(Elements.EARTH)] -= self.spells['confiance'].value
+            self.dmg[int(Elements.WATER)] -= self.spells['confiance'].value
+            self.dmg[int(Elements.AIR)] -= self.spells['confiance'].value
             print(f'{self.name} perd confiance.')
         if(self.spells['fierté'].turnUntilReDo == 1):
             instance = self.spells['fierté'].clone()
@@ -74,7 +77,7 @@ class Mercenaire(LivingEntity):
             return self.atkOponent(oponent, instance)
         elif(self.spells['confiance'].isCanBePlay(self.lvl) and self.HP.getPurcent() > 0.8):
             self.spells['confiance'].resetCooldown()
-            return self.selfBoostDamage(self.spells['confiance'].clone())
+            return self.selfBoostDamageAllElements(self.spells['confiance'].clone())
         elif(self.spells['fierté'].isCanBePlay(self.lvl) and self.HP.getPurcent() < 0.2):
             self.spells['fierté'].resetCooldown()
             return self.selfHeal(self.spells['fierté'].clone())

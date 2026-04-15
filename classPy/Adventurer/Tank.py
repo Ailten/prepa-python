@@ -56,10 +56,16 @@ class Tank(LivingEntity):
 
         # debuff.
         if(self.spells['première défence'].turnUntilReDo == 2):
-            self.res[self.spells['première défence'].element] -= self.spells['première défence'].value
+            self.res[int(Elements.FIRE)] -= self.spells['première défence'].value
+            self.res[int(Elements.EARTH)] -= self.spells['première défence'].value
+            self.res[int(Elements.WATER)] -= self.spells['première défence'].value
+            self.res[int(Elements.AIR)] -= self.spells['première défence'].value
             print(f'{self.name} perd première défence.')
         if(self.spells['défence de secour'].turnUntilReDo == 9):
-            self.res[self.spells['défence de secour'].element] -= self.spells['défence de secour'].value
+            self.res[int(Elements.FIRE)] -= self.spells['défence de secour'].value
+            self.res[int(Elements.EARTH)] -= self.spells['défence de secour'].value
+            self.res[int(Elements.WATER)] -= self.spells['défence de secour'].value
+            self.res[int(Elements.AIR)] -= self.spells['défence de secour'].value
             print(f'{self.name} perd défence de secour.')
         if(self.spells['défence sereine'].turnUntilReDo == 9):
             pass
@@ -67,13 +73,13 @@ class Tank(LivingEntity):
         # pick spell.
         if(self.spells['défence sereine'].isCanBePlay(self.lvl) and self.HP.getPurcent >= 0.4 and not self.HP.isFull()):
             self.spells['défence de secour'].resetCooldown()
-            return self.selfBoostRes(self.spells['défence de secour'].clone())
+            return self.selfBoostResAllElements(self.spells['défence de secour'].clone())
         elif(self.spells['défence de secour'].isCanBePlay(self.lvl) and self.HP.getPurcent <= 0.3):
             self.spells['défence de secour'].resetCooldown()
-            return self.selfBoostRes(self.spells['défence de secour'].clone())
+            return self.selfBoostResAllElements(self.spells['défence de secour'].clone())
         elif(self.spells['première défence'].isCanBePlay(self.lvl)):
             self.spells['première défence'].resetCooldown()
-            return self.selfBoostRes(self.spells['première défence'].clone())
+            return self.selfBoostResAllElements(self.spells['première défence'].clone())
         elif(self.spells['furie du survivant'].isCanBePlay(self.lvl) and self.HP.getPurcent <= 0.1 and self.dmgPurcent[int(Elements.FIRE)] >= self.dmgPurcent[int(Elements.WATER)]):
             self.spells['furie du survivant'].resetCooldown()
             return self.atkOponent(oponent, self.spells['furie du survivant'].clone())
