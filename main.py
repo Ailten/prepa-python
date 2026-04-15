@@ -16,7 +16,7 @@ from classPy.Fight import Fight
 #myOponent = LivingEntity('Abra')
 
 from classPy.Adventurer.Tank import Tank
-myCharacter = Tank('Daramu Nico', lvl=1)
+myCharacter = Tank('Daramu Nico', lvl=4)
 myOponent = LivingEntity('Abra')
 
 Fight.duel(myCharacter, myOponent, turnWait=0.6)
@@ -24,8 +24,5 @@ Fight.duel(myCharacter, myOponent, turnWait=0.6)
 
 
 # TODO :
-# shild on a specific element is a probleme (when ennemey atk in 4 element).
-# --> make it add res in all elem, and retire in all elem.
-# --> same for damage boost.
-# a class for other type of livingEntity (child).
+# a class for other type of livingEntity (child), mobs.
 # set SQL DB, for livingEntity stats, pseudo adventurer, ... etc.
