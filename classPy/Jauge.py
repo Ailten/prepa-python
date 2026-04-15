@@ -19,11 +19,15 @@ class Jauge():
     def refill(self):
         self.currentValue = self.maxValue
     def clamp(self):
-        self.currentValue = math.min(math.max(self.currentValue, 0), self.maxValue)
+        self.currentValue = min(max(self.currentValue, 0), self.maxValue)
 
     def getPurcent(self) -> float:
         return self.currentValue / self.maxValue
 
+    def isUnderRange(self) -> bool:
+        return self.currentValue < 0
+    def isOverRange(self) -> bool:
+        return self.currentValue > self.maxValue
     def getOverRange(self) -> int:
         return math.min(self.currentValue - self.maxValue, 0)
     def getUnderRange(self) -> int:
