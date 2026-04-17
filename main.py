@@ -26,3 +26,4 @@ Fight.duel(myCharacter, myOponent, turnWait=0.6)
 # TODO :
 # a class for other type of livingEntity (child), mobs.
 # set SQL DB, for livingEntity stats, pseudo adventurer, ... etc.
+# need a bether way to apply effect with spell (allow to apply effect, with time-turn), (allow to apply many effect in on spell, in many elements), (bether cooldown spell and restriction)...

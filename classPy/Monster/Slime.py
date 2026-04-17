@@ -1,4 +1,5 @@
 from classPy.LivingEntity import LivingEntity
+from classPy.Elements import Elements
 
 class Slime(LivingEntity):
     def __init__(self):
