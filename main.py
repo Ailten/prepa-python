@@ -16,7 +16,7 @@ from classPy.Fight import Fight
 #myOponent = LivingEntity('Abra')
 
 from classPy.Adventurer.Tank import Tank
-myCharacter = Tank('Daramu Nico', lvl=4)
+myCharacter = Tank('Daramu Nino', lvl=4)
 myOponent = LivingEntity('Abra')
 
 Fight.duel(myCharacter, myOponent, turnWait=0.6)

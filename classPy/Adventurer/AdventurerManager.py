@@ -2,6 +2,7 @@ from classPy.Mercenaire import Mercenaire
 from classPy.Healer import Healer
 from classPy.Tank import Tank
 
+# not use currently.
 class AdventurerManager():
 
     @classmethod

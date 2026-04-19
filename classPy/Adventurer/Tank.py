@@ -71,16 +71,16 @@ class Tank(LivingEntity):
             pass
         
         # pick spell.
-        if(self.spells['défence sereine'].isCanBePlay(self.lvl) and self.HP.getPurcent >= 0.4 and not self.HP.isFull()):
+        if(self.spells['défence sereine'].isCanBePlay(self.lvl) and self.HP.getPurcent() >= 0.4 and not self.HP.isFull()):
             self.spells['défence de secour'].resetCooldown()
             return self.selfBoostResAllElements(self.spells['défence de secour'].clone())
-        elif(self.spells['défence de secour'].isCanBePlay(self.lvl) and self.HP.getPurcent <= 0.3):
+        elif(self.spells['défence de secour'].isCanBePlay(self.lvl) and self.HP.getPurcent() <= 0.3):
             self.spells['défence de secour'].resetCooldown()
             return self.selfBoostResAllElements(self.spells['défence de secour'].clone())
         elif(self.spells['première défence'].isCanBePlay(self.lvl)):
             self.spells['première défence'].resetCooldown()
             return self.selfBoostResAllElements(self.spells['première défence'].clone())
-        elif(self.spells['furie du survivant'].isCanBePlay(self.lvl) and self.HP.getPurcent <= 0.1 and self.dmgPurcent[int(Elements.FIRE)] >= self.dmgPurcent[int(Elements.WATER)]):
+        elif(self.spells['furie du survivant'].isCanBePlay(self.lvl) and self.HP.getPurcent() <= 0.1 and self.dmgPurcent[int(Elements.FIRE)] >= self.dmgPurcent[int(Elements.WATER)]):
             self.spells['furie du survivant'].resetCooldown()
             return self.atkOponent(oponent, self.spells['furie du survivant'].clone())
         elif(self.spells['retourné'].isCanBePlay(self.lvl) and self.dmgPurcent[int(Elements.WATER)] >= self.dmgPurcent[int(Elements.EARTH)]):
